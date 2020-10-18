@@ -25,7 +25,6 @@ const HotelCard = ({ id, name, country, city, street, phones, email }) => {
                             : <div className="card-item-information">{`${elem},`}</div>
                         )
                     }
-
                 </p>
 
                 <p class="card-text text-white">

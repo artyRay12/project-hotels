@@ -6,6 +6,7 @@ import { UserContex } from "../Context/userContext";
 
 export const ProtectedRoute = (props) => {
     const [state] = useContext(UserContex);
+    return <Route {...props} />;
 
     if (state.avatarUrl) {
         return <Route {...props} />;
