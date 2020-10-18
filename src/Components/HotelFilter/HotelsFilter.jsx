@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import "./buyersFilterPanel.scss";
+import "./hotelsFilter.scss";
 
-const FilterPanel = ({ onFilterChange }) => {
+const HotelsFilter = ({ onFilterChange }) => {
     const [value, setValue] = useState("");
 
     useEffect(() => {
@@ -20,4 +20,4 @@ const FilterPanel = ({ onFilterChange }) => {
     );
 };
 
-export default FilterPanel;
+export default HotelsFilter;

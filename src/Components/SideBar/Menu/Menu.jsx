@@ -6,7 +6,7 @@ import TerminalIcon from "../../../assets/icons/TerminalIcon";
 import BuyersIcon from "../../../assets/icons/BuyersIcon";
 
 export default function Menu() {
-    const {width } = useWindowDimensions();
+    const { width } = useWindowDimensions();
 
     return (
         <nav className="navbar-expand navbar-dark bg-dark">
@@ -17,7 +17,7 @@ export default function Menu() {
                     </Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/buyers/">
+                    <Link className="nav-link" to="/hotels/">
                     {width < 1000 ? <BuyersIcon />  : "Clients"}  
                     </Link>
                 </li>

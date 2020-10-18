@@ -3,11 +3,10 @@ import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import Login from "./Pages/Login/Login";
 import SideBar from "./Components/SideBar/SideBar";
-import Terminal from "./Pages/Terminal/Terminal";
-import Buyers from "./Pages/Buyers/Buyers";
-import BuyerPersonal from "./Pages/BuyerPersonal/BuyerPersonal";
 import NotFoundPage from "./Pages/404/404";
 import { ProtectedRoute } from "./route/ProtectedRoute";
+import HotelsPage from "./Pages/Hotels/HotelsPage";
+import HotelPage from "./Pages/Hotel/HotelPage";
 
 function App() {
     return (
@@ -18,11 +17,10 @@ function App() {
                     <Switch>
                         <Route path="/" exact />
                         <Route path="/login/" component={Login} />
-                        <ProtectedRoute path="/terminals/" component={Terminal} />
-                        <ProtectedRoute path="/buyers/" component={Buyers} exact />
-                        <ProtectedRoute path="/buyers/:slug" component={BuyerPersonal} />
+                        <ProtectedRoute path="/hotels/" component={HotelsPage} exact />
+                        <ProtectedRoute path="/hotels/:slug" component={HotelPage} exact/>
                         <Route component={NotFoundPage} />
-                    </Switch>{" "}
+                    </Switch>
                 </div>
             </div>
         </div>

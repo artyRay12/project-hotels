@@ -1,18 +1,17 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { data } from "./data";
-import "./buyers.scss";
-import FilterPanel from "../../Components/BuyersFilterPanel/BuyersFilterPanel";
-import BuyersTable from "../../Components/BuyersTable/BuyersTable";
+import "./hotelsPage.scss";
+import FilterPanel from "../../Components/HotelFilter/HotelsFilter";
 import SizeButtons from "../../Components/SizeButtons/SizeButtons";
 import Pagination from "../../Components/Pagination/Pagination";
+import HotelCards from "../../Components/HotelCards/HotelCards";
 
-const Buyers = () => {
-    const [sortType, setSortType] = useState("ASC");
+const HotelsPage = () => {
     const [filter, setFilter] = useState("");
-    const [state, setState] = useState(data);
+    const [state] = useState(data);
     const [currentPage, setCurrentPage] = useState(1);
-    const [currentTableSize, setCurrentTableSize] = useState(15);
+    const [currentTableSize, setCurrentTableSize] = useState(5);
 
     useEffect(() => {
         setCurrentPage(1);
@@ -24,17 +23,6 @@ const Buyers = () => {
 
     const onSizeChange = (newSize) => {
         setCurrentTableSize(newSize);
-    };
-
-    const onSort = (fieldName) => {
-        const arr = [...state];
-        sortType === "ASC" ? setSortType("DESC") : setSortType("ASC");
-
-        if (sortType === "ASC")
-            arr.sort((x, y) => (x[fieldName] > y[fieldName] ? 1 : -1));
-        else arr.sort((x, y) => (x[fieldName] < y[fieldName] ? 1 : -1));
-
-        setState(arr);
     };
 
     const onCurrentPageChange = (newCurrentPageNumber) => {
@@ -55,24 +43,22 @@ const Buyers = () => {
     const dataForShow = !filter ? state : filteredContacts;
 
     return (
-        <div className="buyers-wrapper col-md-9 col no-gutters p-0">
+        <div className="buyers-wrapper no-gutters">
             <h2 className="text-light text-center m-4">Buyers</h2>
             <div className="d-flex col p-0 justify-content-between buyers-control-panel">
                 <FilterPanel onFilterChange={onFilterChange} />
                 <SizeButtons onSizeChange={onSizeChange} />
             </div>
-
-            <BuyersTable
+            <HotelCards 
                 state={dataForShow.slice(...calculateDataSelection())}
-                onSort={onSort}
             />
             <Pagination
                 tableCurrentSize={currentTableSize}
-                tableTotalSize={15}
+                tableTotalSize={data.length}
                 onCurrentPageChange={onCurrentPageChange}
             />
         </div>
     );
 };
 
-export default Buyers;
+export default HotelsPage;
