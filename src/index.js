@@ -8,9 +8,9 @@ import { UserContextProvider } from "./Context/userContext";
 
 ReactDOM.render(
     <UserContextProvider>
-        <BrowserRouter>
+        <HashRouter>
             <App />
-        </BrowserRouter>
+        </HashRouter>
     </UserContextProvider>,
     document.getElementById("root")
 );
